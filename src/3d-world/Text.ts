@@ -231,7 +231,6 @@ export default class CreateText {
    update(raycaster: THREE.Raycaster, isTouch: boolean) {
       if (!this.animate) return;
       const intersects = raycaster.intersectObject(this.textHoverPlane);
-      console.log(this.textHoverPlane);
 
       if (intersects.length > 0) {
          const pos = this.particles.geometry.attributes.position;
