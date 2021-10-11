@@ -63,10 +63,7 @@ export default class CreateText {
    }
 
    private init(font: Font) {
-      const textHoverPlaneGeometry = new THREE.PlaneGeometry(
-         this.calcPlaneWidthAtCameraZ(2.5),
-         this.calcPlaneHeightAtCameraZ(2.5)
-      );
+      const textHoverPlaneGeometry = new THREE.PlaneGeometry(2, 2);
       const textHoverPlaneMaterial = new THREE.MeshBasicMaterial({
          color: 0x00ff00,
          transparent: true,
@@ -234,6 +231,8 @@ export default class CreateText {
    update(raycaster: THREE.Raycaster, isTouch: boolean) {
       if (!this.animate) return;
       const intersects = raycaster.intersectObject(this.textHoverPlane);
+      console.log(this.textHoverPlane);
+
       if (intersects.length > 0) {
          const pos = this.particles.geometry.attributes.position;
          const posCopy = this.particlesGeometryCopy.attributes.position;
